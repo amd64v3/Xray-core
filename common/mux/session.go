@@ -183,7 +183,7 @@ func (s *Session) Close(locked bool) error {
 			s.XUDP.Expire = time.Now().Add(time.Minute)
 			s.XUDP.Status = Expiring
 			if xudp.Show {
-				fmt.Printf("XUDP put: %v\n", s.XUDP.GlobalID)
+				fmt.Printf("XUDP put %v\n", s.XUDP.GlobalID)
 			}
 		}
 		XUDPManager.Unlock()
@@ -235,7 +235,7 @@ func init() {
 					x.Interrupt()
 					delete(XUDPManager.Map, id)
 					if xudp.Show {
-						fmt.Printf("XUDP del: %v\n", id)
+						fmt.Printf("XUDP del %v\n", id)
 					}
 				}
 			}
